@@ -7,7 +7,7 @@ const api = apiAdapter(URL_MEDIA_USER)
 module.exports = async (req, res) => {
   try {
     const id = req.user.result.id
-    const user = await api.put(`/users/${id}`, req.body)
+    const user = await api.get(`/users/${id}`, req.body)
     return res.json(user.data)
   } catch (error) {
     if (error.code === 'ECONNREFUSED') {
